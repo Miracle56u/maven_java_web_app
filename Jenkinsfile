@@ -4,22 +4,22 @@ pipeline{
   stages{
     stage("Compile code"){
       steps{
-          sh "mvn compile"
+          ba "mvn compile"
        }
     }
      stage("Test code"){
        steps{
-          sh "mvn test"
+          ba "mvn test"
        }
     }
      stage("Build code"){
        steps{
-          sh "mvn build"
+          ba "mvn build"
        }
     }
      stage("Install"){
        steps{
-          sh "mvn install"
+          ba "mvn install"
        }
     }
   }
