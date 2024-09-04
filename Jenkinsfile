@@ -1,18 +1,24 @@
 pipeline{
   agent any
   stages{
-    stage("Bulid"){
+    stage("Compile code"){
       steps{
-          echo 'building the project'
-    }
-     stage("test"){
-       steps{
-          echo 'testing the project '
+          sh "mvn compile"
        }
     }
-     stage("deploy"){
+     stage("Test code"){
        steps{
-          echo 'deploying the project '
+          sh "mvn test"
+       }
+    }
+     stage("Build code"){
+       steps{
+          sh "mvn build"
+       }
+    }
+     stage("Install"){
+       steps{
+          sh "mvn install"
        }
     }
   }
